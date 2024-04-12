@@ -1,0 +1,70 @@
+.main_content_div{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .upper_div{
+        height: 60vh;
+        #map{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .lower_div{
+        height: 40vh;
+        padding: 20px;
+        ion-label {
+            display: block;
+        }
+        .head_lbl{
+            font-weight: 600;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .driver_detail_div{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            .back_image{
+                height: 50px !important;
+                width: 50px !important;
+                border-radius: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                min-width : 50px;
+            }
+            .boy_name{
+                font-weight: 600;
+            }
+            .address{
+                color: gray;
+                width: 80%;
+            }
+            ion-button{
+                position: absolute;
+                right: -3px;
+                top: -5px;
+                --border-radius: 3px;
+                font-weight: 600;
+            }
+        }
+
+        .order_detail{
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .order_status{
+            background: var(--ion-color-primary);
+            position: absolute;
+            right: 20px;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+    }   
+}

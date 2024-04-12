@@ -1,0 +1,57 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+    <div class="back_image" [style.backgroundImage]="'url(assets/imgs/back_image.jpg)'">
+    </div>
+    <div class="white_div" [style.backgroundImage]="'url('+avtar+')'"></div>
+
+    <div class="content_div">
+      <ion-label class="usernane">{{name}}</ion-label>
+
+
+      <ion-label class="location" style="color: black;">{{phone}}</ion-label>
+
+      <div class="flex_div">
+        <ion-button (click)="goToOrder()" size="small" expand="block" fill="clear">{{'My Orders' | translate}}</ion-button>
+
+        <ion-button (click)="goToEditProfile()" size="small" expand="block" fill="clear">{{'View Profile' | translate}}</ion-button>
+      </div>
+
+      <div class="segment_div">
+        <ion-label>{{'Reviews' | translate}}</ion-label>
+      </div>
+
+      <div *ngIf="seg_id == 1" class="segment_detail">
+
+        <div class="review_card" *ngFor="let item of review">
+
+          <div class="user_info">
+
+            <ion-label class="rating">{{item.rate}}<ion-icon name="star"></ion-icon>
+            </ion-label>
+            <img [src]="item.uid.cover" class="user_back" alt="" onError="this.src='assets/imgs/user.jpg'">
+            <!-- <div class="user_back" [style.backgroundImage]="'url(assets/imgs/user.jpg)'"></div> -->
+            <div style="padding-left: 20px;">
+              <ion-label class="username">{{item.uid.fullname}}</ion-label>
+            </div>
+          </div>
+
+          <div>
+            <ion-label class="comment">
+              {{item.descriptions}}
+            </ion-label>
+          </div>
+
+          <div class="line_div"></div>
+
+        </div>
+      </div>
+
+      <ion-button class="logout" (click)="logout()" expand="block">
+        {{'Logout' | translate}}
+      </ion-button>
+
+    </div>
+  </div>
+</ion-content>

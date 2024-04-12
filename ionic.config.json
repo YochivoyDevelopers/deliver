@@ -1,0 +1,7 @@
+{
+  "name": "deliver",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

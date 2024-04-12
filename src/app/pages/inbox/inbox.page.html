@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Support</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="main_content_div">
+    <div class="lower_div" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+      <span *ngFor="let msg of messages">
+        <div class="main_div_right" *ngIf="msg.from == 'user'">
+          <div class="msg_div">
+            <div class="inner_msg">
+              {{msg.msg}}
+            </div>
+          </div>
+          <div class="tri_right"></div>
+        </div>
+
+        <div class="main_div_left" *ngIf="msg.from == 'admin'">
+          <div class="msg_div">
+            <div class="inner_msg">
+              {{msg.msg}}
+            </div>
+          </div>
+          <div class="tri_left"></div>
+        </div>
+      </span>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer_div">
+      <ion-input type="text" [(ngModel)]="message" placeholder="Type a message.."></ion-input>
+      <ion-icon class="send_btn" (click)="send()" name="send-sharp"></ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,158 @@
+.main_content_div{
+    width: 100%;
+
+    .line_div{
+        width: 100%;
+        height: 1px;
+        background: lightgray;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .back_image{
+        height: 300px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+
+        ion-button{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            --background: white;
+            color: black;
+            font-weight: 600;
+        }
+    }
+
+    .white_div{
+        height: 90px;
+        width: 90px;
+        background:white;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: -45px;
+        position: relative;
+        border: 4px solid white;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .content_div{
+        padding: 20px;
+        ion-label {
+            display: block;
+        }
+        .usernane{
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            // margin-top: 10px;
+        }
+        .location{
+            margin-top: 10px;
+            text-align: center;
+            color: gray;
+            font-size: 14px;
+        }
+        .pin{
+            color: gray;
+        }
+
+        .flex_div{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            ion-button{
+                border: 1px solid lightgray;
+                border-radius: 5px;
+                color: black;
+                width: 100px;
+            }
+        }
+
+        .segment_div{
+            display: flex;
+            margin-top: 20px;
+            border-bottom: 1px solid lightgray;
+            ion-label {
+                margin-right: 30px;
+                padding-bottom: 10px;
+                font-weight: 600;
+            }
+            .active{
+                border-bottom: 1px solid red;
+            }
+        }
+
+        .segment_detail{
+            padding-top: 20px;
+            .sleepy{
+                margin: auto;
+                display: block;
+            }
+            .sleepy_lbl{
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                color: gray;
+                font-size: 14px;
+            }
+
+            .review_card{
+
+                .user_info{
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    align-items: center;
+                    position: relative;
+
+                    .rating{
+                        position: absolute;
+                        background: #b2d9b2;
+                        border: 1px solid #7bdb7b;
+                        padding: 3px 7px;
+                        color: green;
+                        border-radius: 25px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        margin-left: 5px;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+                .user_back{
+                    height: 50px;
+                    width: 50px;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    border-radius: 50%;
+                }
+                .username{
+                    font-weight: 600;
+                }
+                .city{
+                    color: gray;
+                }
+                .comment{
+                    margin-top: 10px;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .logout{
+            --border-radius: 5px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+    }
+}

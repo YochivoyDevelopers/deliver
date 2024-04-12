@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header_div">
+      <ion-buttons slot="start">
+        <ion-back-button text="" mode="md" color="dark"></ion-back-button>
+      </ion-buttons>
+      <ion-label class="head_lbl">{{'My Profile' | translate}}</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="back_image" [style.backgroundImage]="'url(assets/imgs/back_image.jpg)'">
+    </div>
+
+    <div class="lower_div">
+      <div class="white_div" [style.backgroundImage]="'url('+coverImage+')'"></div>
+
+      <div class="line_div"></div>
+
+      <div class="form_div">
+        <ion-item class="ion-no-padding">
+          <ion-label position="floating">{{'Name' | translate}}</ion-label>
+          <ion-input [(ngModel)]="name" [disabled]="true"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-no-padding">
+          <ion-label position="floating">{{'Phone Number' | translate}}</ion-label>
+          <ion-input [(ngModel)]="phone" [disabled]="true"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-no-padding">
+          <ion-label position="floating">{{'Email ID' | translate}}</ion-label>
+          <ion-input [(ngModel)]="email" [disabled]="true"></ion-input>
+        </ion-item>
+
+
+        <ion-item class="ion-no-padding">
+          <ion-label position="floating">{{'Description' | translate}}</ion-label>
+          <ion-input [(ngModel)]="descriptions" [disabled]="true"></ion-input>
+        </ion-item>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="save()" expand="block" class="sub_btn">
+      Save Profile
+    </ion-button>
+  </ion-toolbar>
+</ion-footer> -->

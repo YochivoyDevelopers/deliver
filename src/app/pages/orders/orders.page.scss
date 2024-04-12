@@ -1,0 +1,132 @@
+ .segment_div{
+        display: flex;
+        margin-top: 20px;
+        border-bottom: 1px solid lightgray;
+        justify-content: space-around;
+        ion-label {
+            color: gray;
+            padding-bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        .active{
+            border-bottom: 1px solid red;
+        }
+}
+.main_content_div{
+    width: 100%;
+    .centent_div{
+        padding: 20px;
+
+        ion-label {
+            display: block;
+        }
+    }
+
+    .card_div{
+        width: 100%;
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 0.5px solid lightgray;
+
+        .line_div{
+            height: 1px;
+            width: 100%;
+            background: lightgray;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .resto_detail{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+        
+            .back_image{
+                height: 50px;
+                width: 50px;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 100%;
+            }
+
+            .res_name{
+              font-weight: 600;  
+              font-size: 14px;
+            } 
+            .res_location{
+                color: lightgray;
+                font-size: 14px;
+            }
+
+            .order_id{
+                position: absolute;
+                right: 5px;
+                font-size: .6rem;
+                ion-label {
+                   text-align: right;
+                }
+            }
+        }
+
+        .order_detail{
+            position: relative;
+
+            .head_gray{
+                color: lightgray;
+                font-size: 13px;
+                margin-top: 10px;
+            }
+            .small_lbl{
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+                .border_bottom{
+                border-bottom: 1px dashed lightgray;
+                padding: 5px 0px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            .subNames{
+                border-bottom: 1px dashed lightgray;
+                padding-bottom: 5px;
+                .food_title{
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+                .flex_titles{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .sub_name{
+                        margin: 0px;
+                        color: black;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .prize{
+                position: absolute;
+                right: 35px;
+                font-weight: 600 !important;
+            }
+
+            .payment_status{
+                position: absolute;
+                right: -15px;
+                text-transform: uppercase;
+                bottom: -15px;
+                background: var(--ion-color-primary);
+                color: white;
+                font-weight: 600;
+                padding: 8px 12px;
+                border-bottom-right-radius: 10px;
+            }
+        }
+    }
+}

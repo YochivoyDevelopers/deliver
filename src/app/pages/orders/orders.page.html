@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Orders' | translate}}</ion-title>
+  </ion-toolbar>
+  <div class="segment_div">
+    <ion-label [class.active]="seg_id == 1" (click)="onClick(1)">{{'Current Orders' | translate}}</ion-label>
+    <ion-label [class.active]="seg_id == 2" (click)="onClick(2)">{{'Past Orders' | translate}}</ion-label>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="centent_div" *ngIf="seg_id == 1">
+      <h2 class="ion-text-center" *ngIf="!dummy?.length && !orders?.length">{{'No Order' | translate}}</h2>
+
+      <ion-item *ngFor="let item of dummy">
+        <ion-thumbnail>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <div class="card_div" *ngFor="let item of orders" (click)="goToOrderDetail(item.id)">
+
+        <div class="resto_detail">
+          <div class="back_image" [style.backgroundImage]="'url('+getProfilePic(item.uid)+')'"></div>
+          <div style="margin-left: 10px;">
+            <ion-label class="res_name">{{item.uid.fullname}}</ion-label>
+            <ion-label class="res_location">{{item.time}}</ion-label>
+          </div>
+
+          <div class="order_id">
+            <ion-label>{{'Order ID' |  translate}}</ion-label>
+            <ion-label>{{item.id}}</ion-label>
+          </div>
+        </div>
+
+        <div class="line_div"></div>
+
+        <div class="order_detail">
+          <ion-label class="head_gray">{{'ITEMS' | translate}}</ion-label>
+          <!-- <div class="small_lbl">
+            <ion-label *ngFor="let order of item.order">{{order.quantiy}} X {{order.name}} <span
+                class="prize">{{getCurrency()}}{{order.price}}</span></ion-label>
+          </div> -->
+          <div class="small_lbl">
+            <span *ngFor="let order of item.order;let ol = index">
+              <div *ngIf="!order.selectedItem || !order.selectedItem.length" class="border_bottom">
+                {{order.name}} X {{order.quantiy}} <span *ngIf="ol !=item.order.length">,</span>
+              </div>
+
+              <div *ngFor="let subItems of order.selectedItem;let j = index" class="subNames">
+                <ion-label class="food_title">{{order.name}} X {{order.selectedItem[j].total}}</ion-label>
+                <div *ngFor="let addods of subItems.item" class="flex_titles">
+                  <p class="sub_name">
+                    - {{addods.name}}
+                  </p>
+                  <p class="sub_name">
+                    {{getCurrency()}} {{addods.value}}
+                  </p>
+                </div>
+              </div>
+            </span>
+          </div>
+          <ion-label class="head_gray">{{'ORDERED ON' | translate}}</ion-label>
+          <ion-label class="small_lbl">{{item.time}} </ion-label>
+          <ion-label class="head_gray">{{'TOTAL AMOUNT' | translate}}</ion-label>
+          <ion-label class="small_lbl">{{getCurrency()}}{{item.grandTotal}}</ion-label>
+          <ion-label class="payment_status" *ngIf="item.paid =='cod'">Efectivo</ion-label>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="centent_div" *ngIf="seg_id == 2">
+      <h2 class="ion-text-center" *ngIf="!dummy?.length && !oldOrders?.length">{{'No Order' | translate}}</h2>
+      <ion-item *ngFor="let item of dummy">
+        <ion-thumbnail>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <div class="card_div" *ngFor="let item of oldOrders" (click)="goToOrderDetail(item.id)">
+
+        <div class="resto_detail">
+          <div class="back_image" [style.backgroundImage]="'url('+getProfilePic(item.uid)+')'"></div>
+          <div style="margin-left: 10px;">
+            <ion-label class="res_name">{{item.uid.fullname}}</ion-label>
+            <!--            <ion-label class="res_location">{{item.time}}</ion-label>
+-->
+          </div>
+
+          <div class="order_id">
+            <ion-label>{{'Order ID' | translate}}</ion-label>
+            <ion-label>{{item.id}}</ion-label>
+          </div>
+        </div>
+
+        <div class="line_div"></div>
+
+        <div class="order_detail">
+          <ion-label class="head_gray">{{'ITEMS' | translate}}</ion-label>
+          <!-- <div class="small_lbl">
+            <ion-label *ngFor="let order of item.order">{{order.quantiy}} X {{order.name}} <span
+                class="prize">{{getCurrency()}}{{order.price}}</span></ion-label>
+          </div> -->
+          <div class="small_lbl">
+            <span *ngFor="let order of item.order;let ol = index">
+              <div *ngIf="!order.selectedItem || !order.selectedItem.length" class="border_bottom">
+                {{order.name}} X {{order.quantiy}} <span *ngIf="ol !=item.order.length">,</span>
+              </div>
+
+              <div *ngFor="let subItems of order.selectedItem;let j = index" class="subNames">
+                <ion-label class="food_title">{{order.name}} X {{order.selectedItem[j].total}}</ion-label>
+                <div *ngFor="let addods of subItems.item" class="flex_titles">
+                  <p class="sub_name">
+                    - {{addods.name}}
+                  </p>
+                  <p class="sub_name">
+                    {{getCurrency()}} {{addods.value}}
+                  </p>
+                </div>
+              </div>
+            </span>
+          </div>
+          <!--<ion-label class="head_gray">{{'ORDERED ON' | translate}}</ion-label>
+          <ion-label class="small_lbl">{{item.time}} </ion-label>-->
+          <ion-label class="head_gray">{{'TOTAL AMOUNT' | translate}}</ion-label>
+          <ion-label class="small_lbl">{{getCurrency()}}{{item.grandTotal}}</ion-label>
+
+          <ion-label class="payment_status" *ngIf="item.status=='delivered'">{{'Delivered' | translate}}</ion-label>
+          <ion-label class="payment_status" *ngIf="item.status=='ongoing'">{{'Ongoing' | translate}}</ion-label>
+          <ion-label class="payment_status" *ngIf="item.status=='cancel'">{{'Cancel' | translate}}</ion-label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

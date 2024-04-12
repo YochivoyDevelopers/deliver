@@ -1,0 +1,86 @@
+
+.main_content_div{
+    width: 100%;
+    background: white;
+    position: relative;
+
+    .lower_div{
+        padding:0px 20px;
+        .main_div_right{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            .msg_div{
+                display: flex;
+                justify-content: flex-end;
+                width: 80%;
+                margin-bottom: 15px;
+                .inner_msg{
+                    background-color: #F0EFF5;
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+            }
+            .tri_right{
+                width: 0;
+                height: 0;
+                position: absolute;
+                border-top: 10px solid #F0EFF5;
+                border-left: 10px solid transparent;
+                bottom: 10px;
+            }
+        }
+        .main_div_left{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            position: relative;
+            .msg_div{
+                display: flex;
+                justify-content: flex-start;
+                width: 80%;
+                margin-bottom: 15px;
+                .inner_msg{
+                    background-color: var(--ion-color-danger);;
+                    padding: 10px;
+                    border-radius: 5px;
+                    color: white;
+                }
+            }
+            .tri_left{
+                width: 0;
+                height: 0;
+                position: absolute;
+                border-top: 10px solid var(--ion-color-main2);
+                border-right: 10px solid transparent;
+                bottom: 10px;
+            }
+        }
+    }
+}
+
+.footer_div{
+
+    ion-toolbar{
+        --background: #FDFDFD;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+
+    ion-input{
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        --padding-start: 8px;
+        height: 20px;
+        height: 35px;
+    }
+
+    .send_btn{
+        font-size: 20px;
+        color: var(--ion-color-main2);
+        margin-left: 10px;
+    }
+}

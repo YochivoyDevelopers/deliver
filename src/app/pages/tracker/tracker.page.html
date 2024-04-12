@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" mode="md"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="upper_div">
+      <div #map id="map" class="map"></div>
+    </div>
+    <div class="lower_div">
+      <ion-label class="head_lbl">{{'Order on the Way' | translate}}</ion-label>
+
+      <div class="driver_detail_div">
+        <div
+          class="back_image"
+          [style.backgroundImage]="'url('+dCover+')'"
+        ></div>
+        <div style="padding-left: 20px;">
+          <ion-label class="boy_name">{{dName}}</ion-label>
+          <ion-label class="address">{{restAddress}}</ion-label>
+          <!--<ion-button (click)="callDriver()" size="small" fill="outline">
+            {{'CALL' | translate}}
+          </ion-button>-->>
+        </div>
+      </div>
+
+      <ion-label class="order_detail"
+        >{{totalOrders.length}} {{'Items to deliver' | translate }}<span
+          style="color: var(--ion-color-primary);position: absolute;right: 20px;"
+          >{{grandTotal}}{{getCurrency()}}</span
+        >
+      </ion-label>
+      <ion-label class="order_detail"
+        >{{'Order Status' | translate}}<span class="order_status"
+          >Pago al Repartidor</span
+        ></ion-label
+      >
+    </div>
+  </div>
+</ion-content>

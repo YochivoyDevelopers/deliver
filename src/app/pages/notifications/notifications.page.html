@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'Your Notifications' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="flex_div" *ngFor="let item of [1,2,3,4,5]">
+      <div class="noti_div">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </div>
+      <div class="content_div">
+        <ion-label class="head_lbl">{{'Order Assigned' | translate}}</ion-label>
+        <ion-label class="note_lbl">{{'Order' | translate}} #564dsj {{'was assigned to you' | translate}}.</ion-label>
+      </div>      
+    </div>
+
+  </div>
+</ion-content>  

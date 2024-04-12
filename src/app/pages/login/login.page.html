@@ -1,0 +1,81 @@
+<ion-content class="ion-padding">
+  <div class="login-logo">
+    <img src="assets/imgs/icon.png" class="logo_icon" alt="foodies" />
+    <p class="login-name">{{'Login' | translate}}</p>
+    <p class="subTitle">
+      {{'Enter your login detail to' | translate}} <br />
+      {{'access your account' | translate}}
+    </p>
+  </div>
+
+  <form #loginForm="ngForm" novalidate>
+    <ion-list lines="none">
+      <ion-item lines="none">
+        <ion-input
+          [(ngModel)]="login.email"
+          type="email"
+          [placeholder]="('Email' | translate )"
+          name="email"
+          #email="ngModel"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+        >
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p
+          [hidden]="email.valid || submitted == false"
+          class="ion-padding-start"
+        >
+          {{'Email is required' | translate}}
+        </p>
+      </ion-text>
+
+      <ion-item lines="none">
+        <ion-input
+          [(ngModel)]="login.password"
+          name="password"
+          [placeholder]="('Password' | translate )"
+          type="password"
+          #password="ngModel"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p
+          [hidden]="password.valid || submitted == false"
+          class="ion-padding-start"
+        >
+          {{'Password is required' | translate}}
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row class="ion-no-margin ion-no-padding">
+      <ion-col class="ion-no-margin ion-no-padding">
+        <p class="frgTag" (click)="resetPass()">
+          {{'Forgot Password?' | translate}}
+        </p>
+        <ion-button
+          class="btn_class"
+          (click)="onLogin(loginForm)"
+          type="submit"
+          expand="block"
+          [disabled]="isLogin"
+        >
+          <span *ngIf="!isLogin"> {{'Log In' | translate}}</span>
+          <ion-spinner name="circles" *ngIf="isLogin"></ion-spinner>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <!--<div class="btns">
+      <img src="assets/imgs/en.png" (click)="changeLng('en')"
+        [ngClass]="getClassName() == 'en' ? 'flagActive':'flagDeactive'" alt="">
+      <img src="assets/imgs/spanish.png" (click)="changeLng('spanish')"
+        [ngClass]="getClassName() == 'spanish' ? 'flagActive':'flagDeactive'" alt="">
+    </div>-->
+  </form></ion-content
+>
